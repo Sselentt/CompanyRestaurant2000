@@ -2,6 +2,7 @@
 using CompanyRestaurant.BLL.Abstracts;
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.RezervationVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

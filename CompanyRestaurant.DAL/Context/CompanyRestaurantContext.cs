@@ -128,7 +128,7 @@ namespace CompanyRestaurant.DAL.Context
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseSqlServer
      ("server=DESKTOP-GB1SNRD\\SQLEXPRESS;database=CompanyRestaurantNew2024;Trusted_Connection=True;TrustServerCertificate=True;");
-            // ("Server=localhost,1433;Database=NewCompany;User=sa;Password=Gfb1907*;TrustServerCertificate=True");
+          
 
             base.OnConfiguring(optionsBuilder);
         }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CompanyRestaurant.BLL.Abstracts;
 using CompanyRestaurant.MVC.Models.EmployeeVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyRestaurant.MVC.Controllers

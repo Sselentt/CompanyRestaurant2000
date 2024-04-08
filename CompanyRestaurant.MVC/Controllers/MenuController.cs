@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using CompanyRestaurant.BLL.Abstracts;
 using CompanyRestaurant.MVC.Models.ProductVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyRestaurant.MVC.Controllers
 {
-	public class MenuController : Controller
+    public class MenuController : Controller
 	{
 		private readonly IProductRepository _productRepository;
 		private readonly IMapper _mapper;
