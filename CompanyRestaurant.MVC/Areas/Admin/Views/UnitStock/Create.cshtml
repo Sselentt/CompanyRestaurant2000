@@ -1,0 +1,44 @@
+﻿@model CompanyRestaurant.MVC.Models.UnitStockVM.UnitStockViewModel
+
+@{
+    ViewData["Title"] = "Yeni Stok Birimi Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Stock" class="control-label"></label>
+        <input asp-for="Stock" class="form-control" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CriticalStock" class="control-label"></label>
+        <input asp-for="CriticalStock" class="form-control" />
+        <span asp-validation-for="CriticalStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MinimumStockLevel" class="control-label"></label>
+        <input asp-for="MinimumStockLevel" class="form-control" />
+        <span asp-validation-for="MinimumStockLevel" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="IsCriticalLevelReached" /> @Html.DisplayNameFor(model => model.IsCriticalLevelReached)
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Geri</a>
+</div>

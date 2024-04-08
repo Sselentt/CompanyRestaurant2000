@@ -1,0 +1,33 @@
+﻿@model CompanyRestaurant.MVC.Models.CategoryVM.CategoryViewModel;
+
+@{
+    ViewData["Title"] = "Kategori Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.CategoryName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.CategoryName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ProductCount)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ProductCount)
+    </dd>
+</dl>
+
+<a href="@Url.Action("Edit", "Category", new { id = Model.Id })" class="btn btn-warning">Düzenle</a>
+<a href="@Url.Action("Delete", "Category", new { id = Model.Id })" class="btn btn-danger">Sil</a>
+<a href="@Url.Action("Index")" class="btn btn-info">Kategori Listesine Dön</a>

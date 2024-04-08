@@ -1,0 +1,50 @@
+﻿@model CompanyRestaurant.MVC.Models.MaterialVM.MaterialViewModel;
+
+@{
+    ViewData["Title"] = "Yeni Malzeme Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="MaterialName" class="control-label">Malzeme Adı</label>
+        <input asp-for="MaterialName" class="form-control" />
+        <span asp-validation-for="MaterialName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Fiyat</label>
+        <textarea asp-for="Price" class="form-control"></textarea>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UnitInStock" class="control-label">Stok Miktarı</label>
+        <textarea asp-for="UnitInStock" class="form-control"></textarea>
+        <span asp-validation-for="UnitInStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MateriUnitId" class="control-label">Malzeme Birim Tipi</label>
+        <textarea asp-for="MateriUnitId" class="form-control"></textarea>
+        <span asp-validation-for="MateriUnitId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UnitName" class="control-label">Birim Tipi</label>
+        <textarea asp-for="UnitName" class="form-control"></textarea>
+        <span asp-validation-for="UnitName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label asp-for="IsActive" class="form-check-label">Aktif Mi?</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

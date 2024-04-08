@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.SupplierVM.SupplierViewModel>
+
+@{
+    ViewData["Title"] = "Tedarikçi Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Tedarikçi Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Şirket Adı</th>
+            <th>Şehir</th>
+            <th>Adres</th>
+            <th>E-posta</th>
+            <th>Telefon Numarası</th>
+            <th>İletişim Kişisi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CompanyName</td>
+                <td>@item.City</td>
+                <td>@item.Address</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>@item.ContactPerson</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

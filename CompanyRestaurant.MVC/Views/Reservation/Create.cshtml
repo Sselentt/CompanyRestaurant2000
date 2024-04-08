@@ -1,0 +1,81 @@
+﻿@model CompanyRestaurant.MVC.Models.RezervationVM.RezervationViewModel
+@{
+    ViewData["Title"] = "Rezervasyon Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-sm-12 p-4 p-md-5 d-flex align-items-center justify-content-center bg-primary">
+                <form asp-action="Create" asp-controller="Reservation" method="post" class="appointment-form">
+                    <h3 class="mb-3">Book your Table</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name" asp-for="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Surname" asp-for="Surname">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Phone Number" asp-for="PhoneNumber">
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" asp-for="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="date" class="form-control" asp-for="ReservationDate">
+                                <span asp-validation-for="ReservationDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="time" class="form-control" asp-for="StartTime">
+                                <span asp-validation-for="StartTime" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="time" class="form-control" asp-for="EndTime">
+                                <span asp-validation-for="EndTime" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Description" asp-for="Description"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="submit" value="Book Your Table Now" class="btn btn-white py-3 px-4">
+                            </div>
+                        </div>
+                      @*   <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="TableId" class="control-label"></label>
+                                <select asp-for="TableId" class="form-control" asp-items="Model.TableList">
+                                    <option value="">Please select a table</option>
+                                </select>
+                                <span asp-validation-for="TableId" class="text-danger"></span>
+                            </div>
+                        </div> *@
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+﻿@model CompanyRestaurant.MVC.Models.SupplierVM.SupplierViewModel
+
+@{
+    ViewData["Title"] = "Tedarikçi Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="alert alert-danger">
+        <strong>Uyarı!</strong> Bu tedarikçiyi silmek istediğinizde geri alınamaz. Şirket Adı: @Model.CompanyName
+    </div>
+    <button type="submit" class="btn btn-danger">Evet, Sil</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

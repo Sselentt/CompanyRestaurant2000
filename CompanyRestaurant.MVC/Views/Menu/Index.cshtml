@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.ProductVM.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Menu</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <div class="menu-wrap">
+                    <img src="@Url.Content("~/images/product/" + product.ImageUrl)" alt="@product.ProductName" class="menu-img img" width="300" height="200">
+
+                    <div class="text">
+                        <h3>@product.ProductName</h3>
+                        <p>@product.Description</p>
+                        <span class="price">@product.Price.ToString("C")</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

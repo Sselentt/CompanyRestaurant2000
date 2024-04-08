@@ -1,0 +1,47 @@
+﻿@model CompanyRestaurant.MVC.Models.EmployeeVM.EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Çalışan Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Adı:</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Soyadı:</dt>
+            <dd class="col-sm-8">@Model.Surname</dd>
+
+            <dt class="col-sm-4">Unvan:</dt>
+            <dd class="col-sm-8">@Model.Title</dd>
+
+            <dt class="col-sm-4">TC Kimlik No:</dt>
+            <dd class="col-sm-8">@Model.TC</dd>
+
+            <dt class="col-sm-4">Telefon Numarası:</dt>
+            <dd class="col-sm-8">@Model.Phone</dd>
+
+            <dt class="col-sm-4">Performans Değerlendirme Sayısı:</dt>
+            <dd class="col-sm-8">@Model.PerformanceReviewCount</dd>
+
+            <dt class="col-sm-4">Durumu:</dt>
+            <dd class="col-sm-8">@Model.Status</dd>
+
+            <!-- İlişkilendirilmiş kullanıcı hesabı varsa göster -->
+            @if (Model.AppUserId.HasValue)
+            {
+                <dt class="col-sm-4">Kullanıcı Hesabı:</dt>
+                <dd class="col-sm-8">@Model.UserName</dd>
+            }
+
+            <!-- Diğer bilgileriniz varsa burada ekleyebilirsiniz -->
+        </dl>
+    </div>
+</div>
+
+<a href="@Url.Action("Edit", "Employee", new { id = Model.Id })" class="btn btn-warning">Düzenle</a>
+<a href="@Url.Action("Index")" class="btn btn-info">Listeye Dön</a>

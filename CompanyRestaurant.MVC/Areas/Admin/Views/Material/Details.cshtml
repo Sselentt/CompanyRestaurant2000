@@ -1,0 +1,35 @@
+﻿@model CompanyRestaurant.MVC.Models.MaterialVM.MaterialViewModel
+
+@{
+    ViewData["Title"] = "Malzeme Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Malzeme Adı:</dt>
+            <dd class="col-sm-8">@Model.MaterialName</dd>
+
+            <dt class="col-sm-4">Fiyat:</dt>
+            <dd class="col-sm-8">@Model.Price</dd>
+
+            <dt class="col-sm-4">Stok Miktarı:</dt>
+            <dd class="col-sm-8">@Model.UnitInStock</dd>
+
+            <dt class="col-sm-4">Birim Tipi ID:</dt>
+            <dd class="col-sm-8">@Model.MateriUnitId</dd>
+
+            <dt class="col-sm-4">Birim Tipi:</dt>
+            <dd class="col-sm-8">@Model.UnitName</dd>
+
+            <dt class="col-sm-4">Aktif Mi?</dt>
+            <dd class="col-sm-8">@Model.IsActive</dd>
+        </dl>
+    </div>
+</div>
+
+<a href="@Url.Action("Edit", "Material", new { id = Model.Id })" class="btn btn-warning">Düzenle</a>
+<a href="@Url.Action("Index")" class="btn btn-info">Listeye Dön</a>

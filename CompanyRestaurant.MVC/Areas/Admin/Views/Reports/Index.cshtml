@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Raporlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Raporlar</h2>
+
+<div class="list-group">
+    <a href="@Url.Action("SalesReportByDateRange", "Reports", new { area = "Admin", startDate = DateTime.Now.AddDays(-30), endDate = DateTime.Now })" class="list-group-item list-group-item-action">
+        Satış Raporu (Son 30 Gün)
+    </a>
+    <a href="@Url.Action("StockReport", "Reports", new { area = "Admin" })" class="list-group-item list-group-item-action">
+        Stok Raporu
+    </a>
+    <a href="@Url.Action("EmployeePerformanceReport", "Reports", new { area = "Admin" })" class="list-group-item list-group-item-action">
+        Çalışan Performans Raporu
+    </a>
+    <a href="@Url.Action("ReservationReport", "Reports", new { area = "Admin" })" class="list-group-item list-group-item-action">
+        Rezervasyon Raporu
+    </a>
+    <a href="@Url.Action("StockMovementReport", "Reports", new { area = "Admin", startDate = DateTime.Now.AddDays(-30), endDate = DateTime.Now })" class="list-group-item list-group-item-action">
+        Stok Hareketleri Raporu (Son 30 Gün)
+    </a>
+</div>

@@ -1,0 +1,36 @@
+﻿@model CompanyRestaurant.MVC.Models.CustomerVM.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Müşteri Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Bu müşteriyi silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Müşteri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Adı</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Soyadı</dt>
+        <dd>@Model.Surname</dd>
+
+        <dt>Telefon Numarası</dt>
+        <dd>@Model.Phone</dd>
+
+        <dt>E-Posta</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Açıklama</dt>
+        <dd>@Model.Description</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

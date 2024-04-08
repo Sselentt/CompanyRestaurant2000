@@ -1,0 +1,71 @@
+﻿@model CompanyRestaurant.MVC.Models.CurrentVM.CurrentViewModel
+
+@{
+    ViewData["Title"] = "Yeni Cari Hesap Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="AccountNumber" class="control-label">Hesap Numarası</label>
+        <input asp-for="AccountNumber" class="form-control" />
+        <span asp-validation-for="AccountNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CompanyName" class="control-label">Şirket Adı</label>
+        <input asp-for="CompanyName" class="form-control" />
+        <span asp-validation-for="CompanyName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContactName" class="control-label">İletişim Adı</label>
+        <input asp-for="ContactName" class="form-control" />
+        <span asp-validation-for="ContactName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContactEmail" class="control-label">İletişim E-Postası</label>
+        <input asp-for="ContactEmail" type="email" class="form-control" />
+        <span asp-validation-for="ContactEmail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContactPhone" class="control-label">İletişim Telefonu</label>
+        <input asp-for="ContactPhone" class="form-control" />
+        <span asp-validation-for="ContactPhone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address" class="control-label">Adres</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TaxNumber" class="control-label">Vergi Numarası</label>
+        <input asp-for="TaxNumber" class="form-control" />
+        <span asp-validation-for="TaxNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TaxOffice" class="control-label">Vergi Dairesi</label>
+        <input asp-for="TaxOffice" class="form-control" />
+        <span asp-validation-for="TaxOffice" class="text-danger"></span>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="form-group">
+            <label>Bakiye</label>
+            <input type="text" class="form-control" value="@Model.Balance.ToString()" readonly />
+        </div>
+    }
+
+
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Geri Dön</a>
+</form>

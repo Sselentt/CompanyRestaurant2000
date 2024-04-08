@@ -1,0 +1,52 @@
+﻿@model CompanyRestaurant.MVC.Models.LoginVM.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Restoran Giriş</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="~/colorlib-regform-32/css/nunito-font.css">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="~/colorlib-regform-32/css/style.css" />
+</head>
+<body class="form-v6">
+	<div class="page-content">
+		<div class="form-v6-content">
+			<div class="form-left">
+				<img src="~/colorlib-regform-32/images/Sauce1.jpg" alt="form" style="width:484px; height:584px">
+			</div>
+			<form class="form-detail" method="post">
+				<h2>Kullanıcı Giriş</h2>
+				<div class="form-row">
+					<input type="text" id="your-email" class="input-text" placeholder="Email  Addresiniz" asp-for="Email" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
+				</div>
+
+				<div class="form-row">
+					<input type="password" id="password" class="input-text" placeholder="Şifreniz" asp-for="Password" required>
+				</div>
+
+				<div class="form-group form-check">
+					<input type="checkbox" asp-for="RememberMe" class="form-check-input" id="rememberMe">
+					<label class="form-check-label" for="rememberMe">Remember me</label>
+				</div>
+
+				<div class="card-footer text-center">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+					<div class="mt-4">
+						<a href="@Url.Action("Register", "Account", new { area = "Admin" })">Create an account</a>
+						<br>
+						<a href="@Url.Action("ForgotPassword", "Account", new { area = "Admin" })">Forgot your password?</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

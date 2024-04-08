@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyRestaurant.DAL\CompanyRestaurant.DAL.csproj" />
+    <ProjectReference Include="..\CompanyRestaurant.Entities\CompanyRestaurant.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

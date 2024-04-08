@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.RecipeVM.RecipeViewModel>
+
+@{
+    ViewData["Title"] = "Reçeteler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Yeni Reçete Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reçete Adı</th>
+            <th>Porsiyon Sayısı</th>
+            <th>Hazırlık Süresi</th>
+            <th>Pişirme Süresi</th>
+            <th>Talimatlar</th>
+            <th>Reçete Görseli URL</th>
+            <th>Toplam Maliyet</th>
+            <th>Malzemeler</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <td>@recipe.Name</td>
+                <td>@recipe.Serves</td>
+                <td>@recipe.PreparationTime</td>
+                <td>@recipe.CookingTime</td>
+                <td>@recipe.Instructions</td>
+                <td>@recipe.ImageUrl</td>
+                <td>@recipe.TotalCost.ToString("C")</td>
+                <td>
+                    <ul>
+                        @foreach (var material in recipe.RecipeMaterials)
+                        {
+                            <li>@material.MaterialName - @material.Quantity</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Recipe", new { id = recipe.Id })" class="btn btn-warning">Düzenle</a>
+                    <a href="@Url.Action("Details", "Recipe", new { id = recipe.Id })" class="btn btn-info">Detaylar</a>
+                    <a href="@Url.Action("Delete", "Recipe", new { id = recipe.Id })" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

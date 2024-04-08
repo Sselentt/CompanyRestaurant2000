@@ -1,0 +1,41 @@
+﻿@model CompanyRestaurant.MVC.Models.CustomerVM.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Müşteri Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="details-view">
+    <dl class="dl-horizontal">
+        <dt>Adı</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Soyadı</dt>
+        <dd>@Model.Surname</dd>
+
+        <dt>Telefon Numarası</dt>
+        <dd>@Model.Phone</dd>
+
+        <dt>E-Posta</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Açıklama</dt>
+        <dd>@Model.Description</dd>
+
+        <dt>Cari Hesap</dt>
+        <dd>@Model.CurrentAccountName</dd>
+
+        <dt>Rezervasyon Sayısı</dt>
+        <dd>@Model.ReservationCount</dd>
+
+        <dt>Aktif Mi?</dt>
+        <dd>@Model.IsActive</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Düzenle</a>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</div>

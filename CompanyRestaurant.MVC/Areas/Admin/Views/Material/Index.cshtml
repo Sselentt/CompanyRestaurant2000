@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.MaterialVM.MaterialViewModel>
+
+@{
+    ViewData["Title"] = "Malzeme Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Yeni Malzeme Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Malzeme Adı</th>
+            <th>Fiyat</th>
+            <th>Stok Miktarı</th>
+            <th>Malzeme Birim Tipi</th>
+            <th>Birim Tipi Adı</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var material in Model)
+        {
+            <tr>
+                <td>@material.MaterialName</td>
+                <td>@material.Price</td>
+                <td>@material.UnitInStock</td>
+                <td>@material.MateriUnitId</td>
+                <td>@material.UnitName</td>
+                <td>
+                    @if (material.IsActive)
+                    {
+                        <span class="badge badge-success">Aktif</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Pasif</span>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Material", new { id = material.Id })" class="btn btn-warning">Düzenle</a>
+                    <a href="@Url.Action("Details", "Material", new { id = material.Id })" class="btn btn-info">Detaylar</a>
+                    <a href="@Url.Action("Delete", "Material", new { id = material.Id })" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model CompanyRestaurant.MVC.Models.RecipeVM.RecipeViewModel
+
+@{
+    ViewData["Title"] = "Reçete Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Reçete Bilgileri</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Serves)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Serves)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreparationTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreparationTime)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CookingTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CookingTime)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instructions)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+
+        <dt class="col-sm-2">
+            Reçete Görseli
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.ImageUrl" alt="Reçete Görseli" style="max-width: 300px;" />
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+        <dt class="col-sm-2">
+            Malzemeler
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var material in Model.RecipeMaterials)
+            {
+                <div>@material.MaterialName - @material.Quantity</div>
+            }
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>

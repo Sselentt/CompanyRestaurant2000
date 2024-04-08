@@ -1,0 +1,38 @@
+﻿@model CompanyRestaurant.MVC.Models.UnitStockVM.UnitStockViewModel
+
+@{
+    ViewData["Title"] = "Stok Birimini Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Uyarı!</h4>
+    <p>Bu işlemi gerçekleştirdiğinizde, aşağıdaki stok biriminin tüm bilgileri kalıcı olarak silinecektir. Bu işlem geri alınamaz.</p>
+    <hr>
+    <p class="mb-0">Lütfen silmek istediğinize emin olun.</p>
+</div>
+
+<div>
+    <h4>Stok Birimi Bilgileri</h4>
+    <dl class="row">
+        <dt class="col-sm-4">Stok Miktarı</dt>
+        <dd class="col-sm-8">@Model.Stock</dd>
+
+        <dt class="col-sm-4">Kritik Stok Seviyesi</dt>
+        <dd class="col-sm-8">@Model.CriticalStock</dd>
+
+        <dt class="col-sm-4">Minimum Stok Seviyesi</dt>
+        <dd class="col-sm-8">@Model.MinimumStockLevel</dd>
+
+        <dt class="col-sm-4">Kritik Seviyeye Ulaşıldı mı?</dt>
+        <dd class="col-sm-8">@Model.IsCriticalLevelReached</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

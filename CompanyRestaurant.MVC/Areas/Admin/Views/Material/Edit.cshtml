@@ -1,0 +1,53 @@
+﻿@model CompanyRestaurant.MVC.Models.MaterialVM.MaterialViewModel
+
+@{
+    ViewData["Title"] = "Malzeme Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="MaterialName" class="control-label">Malzeme Adı</label>
+        <input asp-for="MaterialName" class="form-control" />
+        <span asp-validation-for="MaterialName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Fiyat</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UnitInStock" class="control-label">Stok Miktarı</label>
+        <input asp-for="UnitInStock" class="form-control" />
+        <span asp-validation-for="UnitInStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MateriUnitId" class="control-label">Birim Tipi ID</label>
+        <input asp-for="MateriUnitId" class="form-control" />
+        <span asp-validation-for="MateriUnitId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UnitName" class="control-label">Birim Tipi</label>
+        <input asp-for="UnitName" class="form-control" />
+        <span asp-validation-for="UnitName" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <div class="form-check">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label class="form-check-label" asp-for="IsActive">Aktif Mi?</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

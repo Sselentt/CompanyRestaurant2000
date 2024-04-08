@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.AppUserVM.AppUserViewModel>
+
+
+@{
+    ViewData["Title"] = "UsersInRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>Rol: @ViewBag.RoleName</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "RoleManager")" class="btn btn-default">Geri Dön</a>

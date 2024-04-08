@@ -1,0 +1,17 @@
+﻿@model CompanyRestaurant.MVC.Models.AppRoleVM.AssignRoleViewModel
+@{
+    ViewData["Title"] = "Role Ata";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="AssignRole" method="post">
+    <input type="hidden" asp-for="UserId" />
+    <div class="form-group">
+        <label for="RoleIds">Roller</label>
+        <select asp-for="RoleIds" asp-items="ViewBag.Roles" class="form-control" multiple="multiple"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Rolleri Ata</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Geri Dön</a>
+</form>

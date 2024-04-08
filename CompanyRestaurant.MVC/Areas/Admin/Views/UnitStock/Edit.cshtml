@@ -1,0 +1,41 @@
+﻿@model CompanyRestaurant.MVC.Models.UnitStockVM.UnitStockViewModel
+
+@{
+    ViewData["Title"] = "Stok Birimini Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Stock" class="control-label">Stok Miktarı</label>
+        <input asp-for="Stock" class="form-control" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CriticalStock" class="control-label">Kritik Stok Seviyesi</label>
+        <input asp-for="CriticalStock" class="form-control" />
+        <span asp-validation-for="CriticalStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MinimumStockLevel" class="control-label">Minimum Stok Seviyesi</label>
+        <input asp-for="MinimumStockLevel" class="form-control" />
+        <span asp-validation-for="MinimumStockLevel" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsCriticalLevelReached" class="control-label">Kritik Seviyeye Ulaşıldı mı?</label>
+        <div class="form-check">
+            <input asp-for="IsCriticalLevelReached" class="form-check-input" />
+            <label class="form-check-label" asp-for="IsCriticalLevelReached">Evet</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

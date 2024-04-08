@@ -1,0 +1,96 @@
+﻿@model CompanyRestaurant.MVC.Models.OrderVM.OrderViewModel
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Sipariş Bilgileri</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TableId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TableId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CurrentId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurrentId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Sipariş Ürünleri</h4>
+    <hr />
+    <ul>
+        @foreach (var productOrder in Model.ProductOrders)
+        {
+            <li>@productOrder.ProductName - @productOrder.Quantity</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h4>Sipariş Ödemeleri</h4>
+    <hr />
+    <ul>
+        @foreach (var payment in Model.Payments)
+        {
+            <li>@payment.PaymentType - @payment.Amount</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>

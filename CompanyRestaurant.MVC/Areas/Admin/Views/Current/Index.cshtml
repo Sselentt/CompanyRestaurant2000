@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CompanyRestaurant.MVC.Models.CurrentVM.CurrentViewModel>
+
+@{
+    ViewData["Title"] = "Cari Hesap Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Yeni Cari Hesap Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hesap Numarası</th>
+            <th>Şirket Adı</th>
+            <th>İletişim Adı</th>
+            <th>İletişim E-Postası</th>
+            <th>İletişim Telefonu</th>
+            <th>Adres</th>
+            <th>Vergi Numarası</th>
+            <th>Vergi Dairesi</th>
+            <th>Bakiye</th>
+            <th>Sipariş Sayısı</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AccountNumber</td>
+                <td>@item.CompanyName</td>
+                <td>@item.ContactName</td>
+                <td>@item.ContactEmail</td>
+                <td>@item.ContactPhone</td>
+                <td>@item.Address</td>
+                <td>@item.TaxNumber</td>
+                <td>@item.TaxOffice</td>
+                <td>@item.Balance</td>
+                <td>@item.OrderCount</td>
+                <td>
+                    <a href="@Url.Action("Details", "Current", new { id = item.Id })" class="btn btn-info">Detay</a>
+                    <a href="@Url.Action("Edit", "Current", new { id = item.Id })" class="btn btn-warning">Düzenle</a>
+                    <a href="@Url.Action("Delete", "Current", new { id = item.Id })" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model CompanyRestaurant.MVC.Models.CurrentVM.CurrentViewModel
+
+@{
+    ViewData["Title"] = "Cari Hesap Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">@ViewData["Title"]</h2>
+
+    <div class="card">
+        <div class="card-header">
+            Cari Hesap Detayları
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                
+                <dt class="col-sm-3">Hesap Numarası</dt>
+                <dd class="col-sm-9">@Model.AccountNumber</dd>
+
+                <dt class="col-sm-3">Şirket Adı</dt>
+                <dd class="col-sm-9">@Model.CompanyName</dd>
+
+                <dt class="col-sm-3">İletişim Adı</dt>
+                <dd class="col-sm-9">@Model.ContactName</dd>
+
+                <dt class="col-sm-3">İletişim E-Postası</dt>
+                <dd class="col-sm-9">@Model.ContactEmail</dd>
+
+                <dt class="col-sm-3">İletişim Telefonu</dt>
+                <dd class="col-sm-9">@Model.ContactPhone</dd>
+
+                <dt class="col-sm-3">Adres</dt>
+                <dd class="col-sm-9">@Model.Address</dd>
+
+                <dt class="col-sm-3">Vergi Numarası</dt>
+                <dd class="col-sm-9">@Model.TaxNumber</dd>
+
+                <dt class="col-sm-3">Vergi Dairesi</dt>
+                <dd class="col-sm-9">@Model.TaxOffice</dd>
+
+                <dt class="col-sm-3">Bakiye</dt>
+                <dd class="col-sm-9">@Model.Balance.ToString("C")</dd>
+
+                <dt class="col-sm-3">Sipariş Sayısı</dt>
+                <dd class="col-sm-9">@Model.OrderCount</dd>
+                
+            </dl>
+        </div>
+    </div>
+
+    <a href="@Url.Action("Index")" class="btn btn-primary mt-3">Geri</a>
+</div>
