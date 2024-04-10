@@ -1,0 +1,25 @@
+﻿@model CompanyRestaurant.MVC.Models.LogoutVM.LogoutViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çıkış yapmak istediğinize emin misiniz?</title>
+</head>
+<body>
+    <h2>Çıkış Yap</h2>
+    <p>Çıkış yapmak istediğinize emin misiniz?</p>
+    <form id="logoutForm" action="/Account/Logout" method="post">
+        <button type="submit">Evet, Çıkış Yap</button>
+        <a href="#" onclick="cancelLogout()">İptal</a>
+    </form>
+
+    <script>
+        function cancelLogout() {
+            // İptal butonuna tıklandığında geri dön
+            history.back();
+        }
+    </script>
+</body>
+</html>

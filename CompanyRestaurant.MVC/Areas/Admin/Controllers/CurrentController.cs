@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin , Accountant")]
     public class CurrentController : Controller
     {
         private readonly ICurrentRepository _currentRepository;

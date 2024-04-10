@@ -2,6 +2,8 @@
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.AppRoleVM;
 using CompanyRestaurant.MVC.Models.AppUserVM;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -121,6 +123,61 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             }
         }
 
+
+        public async Task<IActionResult> UserRoleList()
+        {
+            var roleList=_userManager.Users.ToList();
+            return View(roleList);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> AssignRole(int id)
+        {
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
+            var roles = _roleManager.Roles.ToList();
+
+            TempData["UserId"] = user.Id;
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+
+            List<AssignRoleViewModel> model = new List<AssignRoleViewModel>();
+            foreach (var item in roles)
+            {
+                AssignRoleViewModel m = new AssignRoleViewModel();
+                m.RoleId = item.Id;
+                m.Name = item.Name;
+                m.Exists = userRoles.Contains(item.Name);
+                model.Add(m);
+            }
+            return View(model);
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignRole(List<AssignRoleViewModel> model)
+        {
+            var userid =(int)TempData["UserId"];
+            var user=_userManager.Users.FirstOrDefault(x => x.Id == userid);
+            foreach (var item in model)
+            {
+                if(item.Exists)
+                {
+                    await _userManager.AddToRoleAsync(user, item.Name);
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, item.Name);
+
+                }
+            }
+            return RedirectToAction("UserRoleList");
+        }
+
+
+
         public async Task<IActionResult> UsersInRole(string roleId)
         {
             var role = await _roleManager.FindByIdAsync(roleId);
@@ -144,65 +201,5 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             ViewBag.RoleName = role.Name;
             return View(model);
         }
-        [HttpGet]
-        public async Task<IActionResult> AssignRole(int userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            var model = new AssignRoleViewModel { UserId = userId };
-            // Tüm rolleri getir ve view model içerisinde kullanıma sun.
-            ViewBag.Roles = _roleManager.Roles.ToList().Select(r => new SelectListItem
-            {
-                Value = r.Id.ToString(),
-                Text = r.Name
-            });
-
-            return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AssignRole(AssignRoleViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByIdAsync(model.UserId.ToString());
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                // Önce kullanıcının mevcut rollerini temizle.
-                var currentRoles = await _userManager.GetRolesAsync(user);
-                await _userManager.RemoveFromRolesAsync(user, currentRoles);
-
-                // Yeni rolleri ata.
-                foreach (var roleId in model.RoleIds)
-                {
-                    var role = await _roleManager.FindByIdAsync(roleId.ToString());
-                    if (role != null)
-                    {
-                        await _userManager.AddToRoleAsync(user, role.Name);
-                    }
-                }
-
-                return RedirectToAction(nameof(Index)); // Rol ataması başarılı ise, rollerin listelendiği sayfaya yönlendir.
-            }
-
-            // Eğer ModelState geçersizse, formu ve hataları kullanıcıya geri döndür.
-            ViewBag.Roles = _roleManager.Roles.ToList().Select(r => new SelectListItem
-            {
-                Value = r.Id.ToString(),
-                Text = r.Name
-            });
-
-            return View(model);
-        }
-
-
     }
 }

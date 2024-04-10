@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;

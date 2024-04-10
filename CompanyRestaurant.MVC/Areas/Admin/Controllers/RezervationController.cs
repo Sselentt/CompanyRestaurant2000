@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CompanyRestaurant.BLL.Abstracts;
+using CompanyRestaurant.BLL.Services;
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.RezervationVM;
 using Microsoft.AspNetCore.Authorization;
@@ -9,27 +10,33 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
+    [Authorize] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
     public class ReservationController : Controller
     {
         private readonly IRezervationRepository _reservationRepository;
+        private readonly ITableRepository _tableRepository;
         private readonly IMapper _mapper;
 
-        public ReservationController(IRezervationRepository reservationRepository, IMapper mapper)
+        public ReservationController(IRezervationRepository reservationRepository, ITableRepository tableRepository,IMapper mapper)
         {
             _reservationRepository = reservationRepository;
+            _tableRepository = tableRepository;
             _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
             var reservations = await _reservationRepository.GetAllAsync();
+            var tables = await _tableRepository.GetAllAsync();
+            ViewBag.Tables = tables;
             var model = _mapper.Map<IEnumerable<RezervationViewModel>>(reservations);
             return View(model);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var tables = await _tableRepository.GetAllAsync();
+            ViewBag.TablesSelect = new SelectList(tables, "ID", "TableNo");
             return View(new RezervationViewModel());
         }
 
@@ -43,6 +50,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 await _reservationRepository.MakeReservation(reservation);
                 return RedirectToAction(nameof(Index));
             }
+            var tables = await _tableRepository.GetAllAsync();
+            ViewBag.TablesSelect = new SelectList(tables, "ID", "TableNo");
             return View(model);
         }
 

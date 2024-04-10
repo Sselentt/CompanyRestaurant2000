@@ -9,8 +9,10 @@
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="MaterialName" class="control-label">Malzeme Adı</label>
-        <input asp-for="MaterialName" class="form-control" />
+        <label asp-for="MaterialName"></label>
+        <select asp-for="MaterialName" asp-items="@ViewBag.MaterialsSelect" class="form-control">
+            <option value="">Lütfen Malzeme Adı Seçiniz</option>
+        </select>
         <span asp-validation-for="MaterialName" class="text-danger"></span>
     </div>
 

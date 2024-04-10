@@ -12,7 +12,7 @@ using System.Text.Encodings.Web;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -145,7 +145,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction("Index", "Home"); // logout.html sayfasına yönlendir
         }
 
         private void AddErrors(IdentityResult result)
@@ -205,5 +205,18 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 return RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }
+
+
+        public IActionResult AccessDenied()
+        {
+
+
+            return View();
+        }
+
+
+
+
+
     }
 }

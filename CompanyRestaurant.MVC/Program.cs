@@ -39,7 +39,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Admin/Account/Login"; // Giriþ yapýlmamýþsa yönlendirilecek yol
-    options.AccessDeniedPath = "/Admin/Account/AccessDenied"; // Eriþim reddedildiðinde yönlendirilecek yol
+    options.AccessDeniedPath =new PathString("/Admin/Account/AccessDenied"); // Eriþim reddedildiðinde yönlendirilecek yol
     options.LogoutPath = "/Admin/Account/Logout"; // Çýkýþ iþlemi için yol (isteðe baðlý)
 });
 

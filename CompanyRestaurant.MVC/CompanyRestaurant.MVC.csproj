@@ -59,7 +59,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\Images\Recipe\" />
     <Folder Include="wwwroot\Images\User\" />
     <Folder Include="wwwroot\Images\Product\" />
@@ -212,5 +211,7 @@
     <None Include="wwwroot\tasteit-master\scss\style.scss" />
     <None Include="wwwroot\tasteit-master\_Layout.cshtml.css" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4admin_4dist_4css_4alt_4adminlte_1core_1css_1map__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyRestaurant.MVC.Controllers
 {
+
     public class ReservationController : Controller
     {
         private readonly IRezervationRepository _rezervationRepository;
@@ -29,7 +30,7 @@ namespace CompanyRestaurant.MVC.Controllers
             var model = new RezervationViewModel
             {
                 // "TableNo" masanın görüntülenecek değeridir, bu örnekte masanın numarası
-                TableList = new SelectList(tables, "Id", "TableNo")
+              //  TableList = new SelectList(tables, "Id", "TableNo")
             };
             return View(model);
         }
@@ -49,7 +50,7 @@ namespace CompanyRestaurant.MVC.Controllers
 
             // ModelState.IsValid false ise, formu tekrar göstermeden önce masaların listesini tekrar yükle
             var tables = await _tableRepository.GetAllTables();
-            model.TableList = new SelectList(tables, "Id", "TableNo");
+         //   model.TableList = new SelectList(tables, "Id", "TableNo");
 
             return View(model);
         }

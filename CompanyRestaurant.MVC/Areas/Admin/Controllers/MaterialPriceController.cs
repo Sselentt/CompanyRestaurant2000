@@ -41,7 +41,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             var suppliers = await _supplierRepository.GetAllAsync();
             ViewBag.SuppliersSelect = new SelectList(suppliers, "ID", "CompanyName");
             var materials = await _materialRepository.GetAllAsync();
-            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "Name");
+            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "MaterialName");
             return View(new MaterialPriceViewModel());
         }
 
@@ -59,7 +59,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             var suppliers = await _supplierRepository.GetAllAsync();
             ViewBag.SuppliersSelect = new SelectList(suppliers, "ID", "CompanyName");
             var materials = await _materialRepository.GetAllAsync();
-            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "Name");
+            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "MaterialName");
             return View(model);
         }
 

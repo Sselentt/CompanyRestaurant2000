@@ -23,8 +23,8 @@ namespace CompanyRestaurant.MVC.Models.MaterialVM
         [Display(Name = "Birim Tipi ID")]
         public int MateriUnitId { get; set; } // Malzeme birim tipi ID'si, dropdown list için
 
-        [Display(Name = "Birim Tipi")]
-        public string UnitName { get; set; } // Birim tipi adı, gösterim için
+        //[Display(Name = "Birim Tipi")]
+        //public string UnitName { get; set; } // Birim tipi adı, gösterim için
 
         // Malzeme ile ilişkili diğer bilgiler veya özellikler de eklenebilir.
         [Display(Name = "Durum")]

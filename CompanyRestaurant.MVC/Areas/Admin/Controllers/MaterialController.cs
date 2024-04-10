@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using CompanyRestaurant.BLL.Abstracts;
+using CompanyRestaurant.BLL.Services;
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.MaterialVM;
 using CompanyRestaurant.MVC.Models.RecipeVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
@@ -13,24 +15,30 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
     public class MaterialController : Controller
     {
         private readonly IMaterialRepository _materialRepository;
+        private readonly IMaterialUnitRepository _materialUnitRepository;
         private readonly IMapper _mapper;
 
-        public MaterialController(IMaterialRepository materialRepository, IMapper mapper)
+        public MaterialController(IMaterialRepository materialRepository,IMaterialUnitRepository materialUnitRepository,IMapper mapper)
         {
             _materialRepository = materialRepository;
+            _materialUnitRepository = materialUnitRepository;
             _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
             var materials = await _materialRepository.GetAllAsync();
+            var materialUnits = await _materialUnitRepository.GetAllAsync();
+            ViewBag.Materialunits = materialUnits;
             var model = _mapper.Map<IEnumerable<MaterialViewModel>>(materials);
             return View(model);
         }
 
-        public IActionResult Create()
+        public async Task< IActionResult> Create()
         {
             // Burada gerekirse malzeme birim tipi seçeneklerini ViewBag ile view'a geçirebilirsiniz.
+            var materialUnits = await _materialUnitRepository.GetAllAsync();
+            ViewBag.MaterialUnitsSelect = new SelectList(materialUnits, "ID", "Unit");
             return View(new MaterialViewModel());
         }
 
@@ -44,6 +52,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 await _materialRepository.CreateAsync(material);
                 return RedirectToAction(nameof(Index));
             }
+            var materialUnits = await _materialUnitRepository.GetAllAsync();
+            ViewBag.MaterialUnitsSelect = new SelectList(materialUnits, "ID", "Unit");
             return View(model);
         }
 
