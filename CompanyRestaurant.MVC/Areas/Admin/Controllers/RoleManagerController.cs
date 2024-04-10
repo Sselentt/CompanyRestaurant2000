@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "Admin")] // Yalnızca Admin rolüne sahip kullanıcıların erişimine izin ver.
+    [Authorize(Roles = "Admin")] // Yalnızca Admin rolüne sahip kullanıcıların erişimine izin ver.
     public class RoleManagerController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;

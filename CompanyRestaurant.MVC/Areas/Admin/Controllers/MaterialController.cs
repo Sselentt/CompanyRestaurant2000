@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-    [Authorize] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
+    [Authorize(Roles = "Admin")] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
     public class MaterialController : Controller
     {
         private readonly IMaterialRepository _materialRepository;

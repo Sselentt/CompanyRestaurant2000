@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UnitStockController : Controller
     {
         private readonly IUnitStockRepository _unitStockRepository;

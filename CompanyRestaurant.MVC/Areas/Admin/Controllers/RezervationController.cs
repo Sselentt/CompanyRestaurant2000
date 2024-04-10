@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
+    [Authorize(Roles = "Admin , Waiter")] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
     public class ReservationController : Controller
     {
         private readonly IRezervationRepository _reservationRepository;

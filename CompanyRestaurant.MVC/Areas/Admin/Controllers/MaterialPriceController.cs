@@ -5,12 +5,14 @@ using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.CategoryVM;
 using CompanyRestaurant.MVC.Models.MaterialPriceVM;
 using CompanyRestaurant.MVC.Models.ProductVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin , Accountant")]
     public class MaterialPriceController : Controller
     {
         private readonly IMaterialPriceRepository _materialPriceRepository;

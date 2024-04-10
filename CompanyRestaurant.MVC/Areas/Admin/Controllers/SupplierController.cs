@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
+    [Authorize(Roles = "Admin , Accountant")] // Yalnızca admin rolüne sahip kullanıcılar erişebilir.
     public class SupplierController : Controller
     {
         private readonly ISupplierRepository _supplierRepository;

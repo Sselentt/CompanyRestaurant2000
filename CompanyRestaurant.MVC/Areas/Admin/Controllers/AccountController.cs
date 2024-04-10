@@ -12,7 +12,7 @@ using System.Text.Encodings.Web;
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+   
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
