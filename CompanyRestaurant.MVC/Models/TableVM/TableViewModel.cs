@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CompanyRestaurant.Entities.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace CompanyRestaurant.MVC.Models.TableVM
 {
@@ -16,6 +17,8 @@ namespace CompanyRestaurant.MVC.Models.TableVM
 
         [Display(Name = "Rezervasyon Durumu")]
         public bool IsReserved { get; set; } // Masa rezervasyon durumu
+
+        public virtual List<Rezervation> Rezervations { get; set; }
 
         // Opsiyonel: Masanın konumu veya bölgesi gibi ek bilgiler
         [Display(Name = "Masa Konumu")]

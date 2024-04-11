@@ -8,7 +8,6 @@
 <h2>@ViewData["Title"]</h2>
 
 <div>
-    <h4>Ürün Bilgileri</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -40,12 +39,12 @@
         </dd>
 
 
-        <dt class="col-sm-2">
+       @*  <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CategoryName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CategoryName)
-        </dd>
+        </dd> *@
 
         <dt class="col-sm-2">
             Ürün Resmi
@@ -54,12 +53,12 @@
             <img src="@Model.ProductImage" alt="Ürün Resmi" style="max-width: 300px;" />
         </dd>
 
-        <dt class="col-sm-2">
+       @*  <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RecipeName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RecipeName)
-        </dd>
+        </dd> *@
     </dl>
 </div>
 

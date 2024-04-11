@@ -20,5 +20,10 @@ namespace CompanyRestaurant.MVC.Models.UnitStockVM
 
         [Display(Name = "Kritik Seviyeye Ulaşıldı mı?")]
         public bool IsCriticalLevelReached { get; set; } // Kritik stok seviyesine ulaşılıp ulaşılmadığı
+
+        public int MaterialID { get; set; }
+       
+
+
     }
 }

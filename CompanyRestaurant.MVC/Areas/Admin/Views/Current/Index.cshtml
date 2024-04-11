@@ -22,8 +22,6 @@
             <th>Adres</th>
             <th>Vergi Numarası</th>
             <th>Vergi Dairesi</th>
-            <th>Bakiye</th>
-            <th>Sipariş Sayısı</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -39,8 +37,6 @@
                 <td>@item.Address</td>
                 <td>@item.TaxNumber</td>
                 <td>@item.TaxOffice</td>
-                <td>@item.Balance</td>
-                <td>@item.OrderCount</td>
                 <td>
                     <a href="@Url.Action("Details", "Current", new { id = item.Id })" class="btn btn-info">Detay</a>
                     <a href="@Url.Action("Edit", "Current", new { id = item.Id })" class="btn btn-warning">Düzenle</a>

@@ -25,11 +25,12 @@
             <dt class="col-sm-4">Telefon Numarası:</dt>
             <dd class="col-sm-8">@Model.Phone</dd>
 
+            <dt class="col-sm-4">Kullanıcı Adı:</dt>
+            <dd class="col-sm-8">@Model.UserName</dd>
+
             <dt class="col-sm-4">Performans Değerlendirme Sayısı:</dt>
             <dd class="col-sm-8">@Model.PerformanceReviewCount</dd>
 
-            <dt class="col-sm-4">Durumu:</dt>
-            <dd class="col-sm-8">@Model.Status</dd>
 
             <!-- İlişkilendirilmiş kullanıcı hesabı varsa göster -->
             @if (Model.AppUserId.HasValue)

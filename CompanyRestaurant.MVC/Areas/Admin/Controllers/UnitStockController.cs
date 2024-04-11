@@ -3,9 +3,11 @@ using CompanyRestaurant.BLL.Abstracts;
 using CompanyRestaurant.BLL.Services;
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.CategoryVM;
+using CompanyRestaurant.MVC.Models.MaterialVM;
 using CompanyRestaurant.MVC.Models.UnitStockVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
@@ -20,6 +22,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         {
             _unitStockRepository = unitStockRepository;
             _mapper = mapper;
+            
         }
 
         public async Task<IActionResult> Index()
@@ -29,7 +32,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             return View(model);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             return View();
         }
@@ -44,6 +47,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 await _unitStockRepository.CreateAsync(unitStock);
                 return RedirectToAction(nameof(Index));
             }
+           
             return View(model);
         }
 

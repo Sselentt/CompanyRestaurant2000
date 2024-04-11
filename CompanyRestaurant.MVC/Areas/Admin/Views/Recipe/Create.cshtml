@@ -16,19 +16,19 @@
 
     <div class="form-group">
         <label asp-for="Serves"></label>
-        <input asp-for="Serves" class="form-control" />
+        <input asp-for="Serves" class="form-control" type="number" />
         <span asp-validation-for="Serves" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="PreparationTime"></label>
-        <input asp-for="PreparationTime" class="form-control" />
+        <input asp-for="PreparationTime" class="form-control" type="time" step="1" />
         <span asp-validation-for="PreparationTime" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="CookingTime"></label>
-        <input asp-for="CookingTime" class="form-control" />
+        <input asp-for="CookingTime" class="form-control" type="time" step="1" />
         <span asp-validation-for="CookingTime" class="text-danger"></span>
     </div>
 
@@ -40,21 +40,33 @@
 
     <div class="form-group">
         <label asp-for="ImageUrl"></label>
-        <input asp-for="ImageUrl" class="form-control" />
+        <input asp-for="ImageUrl" class="form-control" type="text" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="TotalCost"></label>
-        <input asp-for="TotalCost" class="form-control" />
+        <input asp-for="TotalCost" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="TotalCost" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="RecipeMaterials"></label>
-        <!-- Reçete malzemeleri ekleme alanı -->
+        <label asp-for="ProductId"></label>
+        <select asp-for="ProductId" asp-items="@ViewBag.ProductsSelect" class="form-control">
+            <option value="">Lütfen Malzeme Seçiniz</option>
+        </select>
+        <span asp-validation-for="ProductId" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Kaydet</button>
     <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
 </form>
+
+<script>
+    function addMaterial() {
+        // Dinamik olarak malzeme ekleme alanı buraya yazılacak.
+        // Not: Bu örnek, client-side JavaScript kullanmayı gerektirir ve
+        // bu script, server-side Razor koduyla doğrudan etkileşime giremez.
+        // Malzeme ekleme işlemini server'a göndermeden önce client tarafında yönetmelisiniz.
+    }
+</script>

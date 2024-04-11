@@ -37,7 +37,7 @@ namespace CompanyRestaurant.MVC.Models.RecipeVM
         public decimal TotalCost { get; set; } // Toplam maliyet
 
         // Reçeteye ait malzemeleri tutacak bir koleksiyon
-        [Display(Name = "Malzemeler")]
+        //[Display(Name = "Malzemeler")]
         public List<RecipeMaterialViewModel> RecipeMaterials { get; set; }
 
         public RecipeViewModel()

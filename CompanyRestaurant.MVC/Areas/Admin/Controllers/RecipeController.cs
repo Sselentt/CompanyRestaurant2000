@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using CompanyRestaurant.BLL.Abstracts;
+using CompanyRestaurant.BLL.Services;
 using CompanyRestaurant.Entities.Entities;
 using CompanyRestaurant.MVC.Models.RecipeVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 {
@@ -31,9 +33,11 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             return View(model);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var products = await _productRepository.GetAllAsync();
+            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductId");
+            return View(new RecipeViewModel());
         }
 
         [HttpPost]
@@ -46,6 +50,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 await _recipeRepository.CreateAsync(recipe);
                 return RedirectToAction(nameof(Index));
             }
+            var products = await _productRepository.GetAllAsync();
+            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductId");
             return View(model);
         }
 

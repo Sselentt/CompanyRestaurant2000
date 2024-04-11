@@ -15,12 +15,16 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
     {
         private readonly IRezervationRepository _reservationRepository;
         private readonly ITableRepository _tableRepository;
+        private readonly IAppUserRepository _appUserRepository;
+        private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        public ReservationController(IRezervationRepository reservationRepository, ITableRepository tableRepository,IMapper mapper)
+        public ReservationController(IRezervationRepository reservationRepository, ITableRepository tableRepository,IAppUserRepository appUserRepository,ICustomerRepository customerRepository,IMapper mapper)
         {
             _reservationRepository = reservationRepository;
             _tableRepository = tableRepository;
+            _appUserRepository = appUserRepository;
+            _customerRepository = customerRepository;
             _mapper = mapper;
         }
 
@@ -29,6 +33,10 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             var reservations = await _reservationRepository.GetAllAsync();
             var tables = await _tableRepository.GetAllAsync();
             ViewBag.Tables = tables;
+            var appUsers = await _appUserRepository.GetAllAsync();
+            ViewBag.AppUsers = appUsers;
+            var customers = await _customerRepository.GetAllAsync();
+            ViewBag.Customers = customers;
             var model = _mapper.Map<IEnumerable<RezervationViewModel>>(reservations);
             return View(model);
         }
@@ -37,6 +45,10 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         {
             var tables = await _tableRepository.GetAllAsync();
             ViewBag.TablesSelect = new SelectList(tables, "ID", "TableNo");
+            var appUsers = await _appUserRepository.GetAllAsync();
+            ViewBag.AppUsersSelect = new SelectList(appUsers, "ID", "AppUserId");
+            var customers = await _customerRepository.GetAllAsync();
+            ViewBag.CustomersSelect = new SelectList(customers, "ID", "CustomerId");
             return View(new RezervationViewModel());
         }
 
@@ -52,6 +64,10 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             }
             var tables = await _tableRepository.GetAllAsync();
             ViewBag.TablesSelect = new SelectList(tables, "ID", "TableNo");
+            var appUsers = await _appUserRepository.GetAllAsync();
+            ViewBag.AppUsersSelect = new SelectList(appUsers, "ID", "AppUserId");
+            var customers = await _customerRepository.GetAllAsync();
+            ViewBag.CustomersSelect = new SelectList(customers, "ID", "CustomerId");
             return View(model);
         }
 
