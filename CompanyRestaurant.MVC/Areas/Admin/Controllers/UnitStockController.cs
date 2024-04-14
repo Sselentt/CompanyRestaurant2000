@@ -16,11 +16,13 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
     public class UnitStockController : Controller
     {
         private readonly IUnitStockRepository _unitStockRepository;
+        private readonly IMaterialRepository _materialRepository;
         private readonly IMapper _mapper;
 
-        public UnitStockController(IUnitStockRepository unitStockRepository, IMapper mapper)
+        public UnitStockController(IUnitStockRepository unitStockRepository, IMaterialRepository materialRepository,IMapper mapper)
         {
             _unitStockRepository = unitStockRepository;
+            _materialRepository = materialRepository;
             _mapper = mapper;
             
         }
@@ -28,13 +30,17 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var unitStocks = await _unitStockRepository.GetAllAsync();
+            var materials = await _materialRepository.GetAllAsync();
+            ViewBag.Materials = materials;
             var model = _mapper.Map<IEnumerable<UnitStockViewModel>>(unitStocks);
             return View(model);
         }
 
         public async Task<IActionResult> Create()
         {
-            return View();
+            var materials = await _materialRepository.GetAllAsync();
+            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "MaterialId");
+            return View(new UnitStockViewModel());
         }
 
         [HttpPost]
@@ -47,7 +53,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 await _unitStockRepository.CreateAsync(unitStock);
                 return RedirectToAction(nameof(Index));
             }
-           
+            var materialsReloaded = await _materialRepository.GetAllAsync();
+            ViewBag.MaterialsSelect = new SelectList(materialsReloaded, "ID", "MaterialId");
             return View(model);
         }
 

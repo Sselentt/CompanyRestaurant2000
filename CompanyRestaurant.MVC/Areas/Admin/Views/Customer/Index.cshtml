@@ -18,6 +18,7 @@
             <th>Soyadı</th>
             <th>Telefon Numarası</th>
             <th>E-Posta</th>
+            <th>Açıklama</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
             <td>@item.Surname</td>
             <td>@item.Phone</td>
             <td>@item.Email</td>
+            <td>@item.Description</td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>

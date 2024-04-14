@@ -36,7 +36,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Create()
         {
             var products = await _productRepository.GetAllAsync();
-            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductId");
+            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductName");
             return View(new RecipeViewModel());
         }
 
@@ -51,7 +51,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             var products = await _productRepository.GetAllAsync();
-            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductId");
+            ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductName");
             return View(model);
         }
 

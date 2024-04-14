@@ -17,6 +17,7 @@
             <th>Soyadı</th>
             <th>Unvan</th>
             <th>Telefon Numarası</th>
+            <th>Kullanıcı Adı</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -28,6 +29,7 @@
                 <td>@employee.Surname</td>
                 <td>@employee.Title</td>
                 <td>@employee.Phone</td>
+                <td>@employee.UserName</td>
                 <td>
                     <a href="@Url.Action("Details", "Employee", new { id = employee.Id })" class="btn btn-info">Detay</a>
                     <a href="@Url.Action("Edit", "Employee", new { id = employee.Id })" class="btn btn-warning">Düzenle</a>

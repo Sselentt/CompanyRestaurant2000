@@ -36,7 +36,14 @@
                 <td>@recipe.Instructions</td>
                 <td>@recipe.ImageUrl</td>
                 <td>@recipe.TotalCost.ToString("C")</td>
-                <td>@recipe.ProductId</td>
+                @foreach (var item in ViewBag.products as IEnumerable<Product>)
+                {
+                    if (recipe.ProductId == item.ID)
+                    {
+                        <td>@item.ProductName</td>
+                    }
+
+                }
                 <td>
                     <a href="@Url.Action("Edit", "Recipe", new { id = recipe.Id })" class="btn btn-warning">Düzenle</a>
                     <a href="@Url.Action("Details", "Recipe", new { id = recipe.Id })" class="btn btn-info">Detaylar</a>

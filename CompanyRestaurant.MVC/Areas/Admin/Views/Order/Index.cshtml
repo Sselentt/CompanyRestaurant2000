@@ -42,7 +42,14 @@
                        
                     }
                 <td>@order.TableId</td>
-                <td>@order.CurrentId</td>
+                @foreach (var item in ViewBag.currents as IEnumerable<Current>)
+                {
+                    if (order.CurrentId == item.ID)
+                    {
+                        <td>@item.CompanyName</td>
+                    }
+
+                }
                 <td>@order.CreatedDate.ToString("g")</td>
                 <td>@(order.IsActive ? "Evet" : "Hayır")</td>
                 <td>
