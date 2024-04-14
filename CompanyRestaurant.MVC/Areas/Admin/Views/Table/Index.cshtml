@@ -17,7 +17,6 @@
             <th>Masa Numarası</th>
             <th>Kişi Kapasitesi</th>
             <th>Rezervasyon Durumu</th>
-            <th>Masa Konumu</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -27,8 +26,7 @@
             <tr>
                 <td>@item.TableNo</td>
                 <td>@item.PersonCapacity</td>
-                <td>@(item.IsReserved ? "Rezerve Edildi" : "Rezerve Edilmedi")</td>
-                <td>@item.Location</td>
+                <td>@(item.RezStatus ? "Rezerve Edildi" : "Rezerve Edilmedi")</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>

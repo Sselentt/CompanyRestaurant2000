@@ -16,10 +16,9 @@
         <dd>@Model.PersonCapacity</dd>
 
         <dt>Rezervasyon Durumu</dt>
-        <dd>@(Model.IsReserved ? "Rezerve Edilmiş" : "Rezerve Edilmemiş")</dd>
+        <dd>@(Model.RezStatus ? "Rezerve Edilmiş" : "Rezerve Edilmemiş")</dd>
 
-        <dt>Masa Konumu</dt>
-        <dd>@Model.Location</dd>
+        
     </dl>
 </div>
 

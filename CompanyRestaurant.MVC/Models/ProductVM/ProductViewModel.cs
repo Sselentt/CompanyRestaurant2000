@@ -36,7 +36,9 @@ namespace CompanyRestaurant.MVC.Models.ProductVM
         [Required(ErrorMessage = "Reçete seçimi zorunludur.")]
         [Display(Name = "Reçete ID")]
         public int? RecipeId { get; set; }
-        [Display(Name = "Reçete Adı")]
-        public string? RecipeName { get; set; } // İlişkilendirilmiş reçetenin adı
+
+        //[Required(ErrorMessage = "Reçete seçimi zorunludur.")]
+        //[Display(Name = "Reçete Adı")]
+        //public string RecipeName { get; set; } // İlişkilendirilmiş reçetenin adı
     }
 }

@@ -26,10 +26,24 @@
         @foreach (var materialPrice in Model)
         {
             <tr>
-                <td>@materialPrice.MaterialName</td>
+                @foreach (var item in ViewBag.materials as IEnumerable<Material>)
+                {
+                    if (materialPrice.MaterialId == item.ID)
+                    {
+                        <td>@item.MaterialName</td>
+                    }
+
+                }
                 <td>@materialPrice.Price.ToString("C")</td>
                 <td>@materialPrice.Description</td>
-                <td>@materialPrice.SupplierName</td>
+                @foreach (var item in ViewBag.suppliers as IEnumerable<Supplier>)
+                {
+                    if (materialPrice.SupplierId == item.ID)
+                    {
+                        <td>@item.CompanyName</td>
+                    }
+
+                }
                 <td>
                     @if (materialPrice.IsActive)
                     {

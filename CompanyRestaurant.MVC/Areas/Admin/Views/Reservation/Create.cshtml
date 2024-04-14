@@ -2,10 +2,10 @@
 
 @{
     ViewData["Title"] = "Yeni Rezervasyon Oluştur";
-    Layout = "~/Views/Shared/_Layout.cshtml"; // Kullandığınız layout dosyasının yolunu buraya yazın
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; // Kullandığınız layout dosyasının yolunu buraya yazın
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>Yeni Rez</h2>
 
 <form asp-action="Create" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -66,13 +66,15 @@
         <span asp-validation-for="TableId" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+ @*    <div class="form-group">
         <label asp-for="AppUserId"></label>
         <select asp-for="AppUserId" asp-items="@ViewBag.AppUsersSelect" class="form-control">
             <option value="">Lütfen bir çalışan seçiniz</option>
         </select>
         <span asp-validation-for="AppUserId" class="text-danger"></span>
-    </div>
+    </div> *@
+
+    <input type="hidden" value="@User.Identity.Name" asp-for="AppUserName"/>
 
     <div class="form-group">
         <label asp-for="CustomerId"></label>

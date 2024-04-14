@@ -18,7 +18,7 @@
             <th>Fiyat</th>
             <th>Ödeme Tipi</th>
             <th>Çalışan ID</th>
-            <th>Masa ID</th>
+            <th>Masa No</th>
             <th>Cari Hesap ID</th>
             <th>Oluşturulma Tarihi</th>
             <th>Aktif Mi?</th>
@@ -32,7 +32,15 @@
                 <td>@order.OrderName</td>
                 <td>@order.Price.ToString("C")</td>
                 <td>@order.PaymentType</td>
-                <td>@order.EmployeeId</td>
+                
+                    @foreach (var item in ViewBag.employees as IEnumerable<Employee>)
+                    {
+                        if (order.EmployeeId==item.ID)
+                        {
+                        <td>@item.Name</td>
+                        }
+                       
+                    }
                 <td>@order.TableId</td>
                 <td>@order.CurrentId</td>
                 <td>@order.CreatedDate.ToString("g")</td>

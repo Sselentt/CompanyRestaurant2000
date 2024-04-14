@@ -42,8 +42,8 @@ namespace CompanyRestaurant.MVC.AutoMappers
             CreateMap<PerformanceReview, PerformanceReviewViewModel>();
             CreateMap<ProductOrder, ProductOrderViewModel>();
             //CreateMap<Product, ProductViewModel>();
-            CreateMap<Product, ProductViewModel>().ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.CategoryName))
-                                                   .ForMember(x => x.RecipeName, otp => otp.MapFrom(x => x.Recipe.Name)); //.ForMember(x => x.RecipeName, otp => otp.MapFrom(x => x.Recipe.Name)
+            CreateMap<Product, ProductViewModel>().ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.CategoryName));
+                                                 
             CreateMap<RecipeMaterial, RecipeMaterialViewModel>();
             CreateMap<Recipe, RecipeViewModel>();
             CreateMap<Rezervation, RezervationViewModel>();

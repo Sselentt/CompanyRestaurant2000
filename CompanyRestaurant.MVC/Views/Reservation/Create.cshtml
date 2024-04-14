@@ -64,6 +64,11 @@
                                 <input type="submit" value="Book Your Table Now" class="btn btn-white py-3 px-4">
                             </div>
                         </div>
+
+                        <input type="hidden" value="@User.Identity.Name" />
+                       
+                        
+
                        @*  <div class="form-group">
                             <label asp-for="TableId"></label>
                             <select asp-for="TableId" class="form-control" asp-items="@Model.TableList">

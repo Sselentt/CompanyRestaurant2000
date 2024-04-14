@@ -16,12 +16,12 @@ namespace CompanyRestaurant.MVC.Models.TableVM
         public int PersonCapacity { get; set; } // Masa kişi kapasitesi
 
         [Display(Name = "Rezervasyon Durumu")]
-        public bool IsReserved { get; set; } // Masa rezervasyon durumu
+        public bool RezStatus { get; set; } // Masa rezervasyon durumu
 
-        public virtual List<Rezervation> Rezervations { get; set; }
+        public virtual List<Rezervation>? Rezervations { get; set; }
 
         // Opsiyonel: Masanın konumu veya bölgesi gibi ek bilgiler
-        [Display(Name = "Masa Konumu")]
-        public string Location { get; set; } // Masanın bulunduğu konum veya bölge
+        //[Display(Name = "Masa Konumu")]
+        //public string Location { get; set; } // Masanın bulunduğu konum veya bölge
     }
 }
