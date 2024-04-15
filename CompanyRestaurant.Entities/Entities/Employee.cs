@@ -23,6 +23,7 @@ namespace CompanyRestaurant.Entities.Entities
         {
             Orders = new List<Order>();
             PerformanceReviews = new List<PerformanceReview>();
+           
         }
     }
 

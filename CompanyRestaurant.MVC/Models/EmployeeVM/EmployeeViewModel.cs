@@ -32,7 +32,7 @@ namespace CompanyRestaurant.MVC.Models.EmployeeVM
         public string UserName { get; set; } // İlişkilendirilmiş kullanıcı hesabının adı
 
         [Display(Name = "Performans Değerlendirme Sayısı")]
-        public int PerformanceReviewCount { get; set; } // Çalışana ait performans değerlendirme sayısı
+        public int PerformanceReviewCount{ get; set; } // Çalışana ait performans değerlendirme sayısı
 
         [Display(Name = "Durum")]
         public DataStatus Status { get; set; } // Kategori durumu

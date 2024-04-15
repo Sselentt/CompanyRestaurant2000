@@ -1,4 +1,5 @@
-﻿using CompanyRestaurant.MVC.Models.RecipeMaterialVM;
+﻿using CompanyRestaurant.MVC.Models.ProductVM;
+using CompanyRestaurant.MVC.Models.RecipeMaterialVM;
 using System.ComponentModel.DataAnnotations;
 
 namespace CompanyRestaurant.MVC.Models.RecipeVM
@@ -30,7 +31,7 @@ namespace CompanyRestaurant.MVC.Models.RecipeVM
         public string ImageUrl { get; set; }  //Reçete resmi URL
 
         [Display(Name = "Ürün ID")]
-        public int ProductId { get; set; } // Ürün ile ilişkilendirme
+        public int? ProductId { get; set; } // Ürün ile ilişkilendirme
 
         // Reçete maliyeti gibi hesaplanabilir alanlar da ViewModel'e eklenebilir.
         [Display(Name = "Toplam Maliyet")]
@@ -38,6 +39,8 @@ namespace CompanyRestaurant.MVC.Models.RecipeVM
 
         // Reçeteye ait malzemeleri tutacak bir koleksiyon
         //[Display(Name = "Malzemeler")]
+
+      
         public List<RecipeMaterialViewModel> RecipeMaterials { get; set; }
 
         public RecipeViewModel()

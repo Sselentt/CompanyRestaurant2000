@@ -15,12 +15,14 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
     {
         private readonly IRecipeRepository _recipeRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IRecipeMaterialRepository _recipeMaterialRepository;
         private readonly IMapper _mapper;
 
-        public RecipeController(IRecipeRepository recipeRepository,IProductRepository productRepository ,IMapper mapper)
+        public RecipeController(IRecipeRepository recipeRepository,IProductRepository productRepository ,IRecipeMaterialRepository recipeMaterialRepository,IMapper mapper)
         {
             _recipeRepository = recipeRepository;
             _productRepository = productRepository;
+            _recipeMaterialRepository = recipeMaterialRepository;
             _mapper = mapper;
         }
 
@@ -29,6 +31,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             var recipes = await _recipeRepository.GetAllAsync();
             var products = await _productRepository.GetAllAsync();
             ViewBag.Products = products;
+            var recipeMaterials = await _recipeMaterialRepository.GetAllAsync();
+            ViewBag.RecipeMaterials = recipeMaterials;
             var model = _mapper.Map<IEnumerable<RecipeViewModel>>(recipes);
             return View(model);
         }
@@ -37,6 +41,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         {
             var products = await _productRepository.GetAllAsync();
             ViewBag.ProductsSelect = new SelectList(products, "ID", "ProductName");
+            var recipeMaterials = await _recipeMaterialRepository.GetAllAsync();
+            ViewBag.RecipeMaterialsSelect = new SelectList(recipeMaterials, "ID", "MaterialId");
             return View(new RecipeViewModel());
         }
 

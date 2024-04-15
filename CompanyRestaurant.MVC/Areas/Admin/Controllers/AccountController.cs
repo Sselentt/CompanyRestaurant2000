@@ -202,7 +202,8 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return Redirect(returnUrl);
+                //return RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }
 

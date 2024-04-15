@@ -13,11 +13,13 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
     public class EmployeeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IAppUserRepository _appUserRepository;
         private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeRepository employeeRepository, IMapper mapper)
+        public EmployeeController(IEmployeeRepository employeeRepository, IAppUserRepository appUserRepository,IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _appUserRepository = appUserRepository;
             _mapper = mapper;
         }
 

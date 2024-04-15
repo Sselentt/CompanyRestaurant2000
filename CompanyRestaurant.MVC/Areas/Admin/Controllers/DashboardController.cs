@@ -34,6 +34,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
 
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var viewModel = new DashboardViewModel();

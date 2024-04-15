@@ -4,7 +4,7 @@
     {
         private static readonly HashSet<string> AllowedExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            ".png", ".jpg", ".jpeg", ".gif"
+            ".png", ".jpg", ".jpeg", ".gif", ".html"
         };
 
         public static string GenerateFileName(string originalFileName)

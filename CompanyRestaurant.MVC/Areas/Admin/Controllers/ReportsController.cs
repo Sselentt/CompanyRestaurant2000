@@ -131,9 +131,12 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                     worksheet.Cell(currentRow, 1).Value = employee.ID;
                     worksheet.Cell(currentRow, 2).Value = employee.Name;
                     worksheet.Cell(currentRow, 3).Value = employee.Surname;
-                    worksheet.Cell(currentRow, 4).Value = employee.PerformanceReviews.Count;
 
-                    // Örnek olarak, müşteri memnuniyetinin ortalamasını hesaplıyoruz.
+                    // Performans değerlendirme sayısı
+                    var performanceReviewsCount = employee.PerformanceReviews.Count;
+                    worksheet.Cell(currentRow, 4).Value = performanceReviewsCount;
+
+                    // Ortalama müşteri memnuniyeti
                     var averageSatisfaction = employee.PerformanceReviews.Any() ? employee.PerformanceReviews.Average(pr => pr.CustomerSatisfaction) : 0;
                     worksheet.Cell(currentRow, 5).Value = averageSatisfaction;
                 }
@@ -146,6 +149,7 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 }
             }
         }
+
         public async Task<IActionResult> ReservationReport()
         {
             var reservations = await _rezervationRepository.GetAllAsync(); // Assuming GetAllAsync exists or similar

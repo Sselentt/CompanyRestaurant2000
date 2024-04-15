@@ -25,10 +25,15 @@ namespace CompanyRestaurant.BLL.Services
         {
             // Örnek olarak, stok miktarı 10'un altındaki malzemeleri filtreleyelim.
             // Gerçek bir senaryoda, bu eşik değeri bir konfigürasyon dosyasından veya kullanıcı girişinden alınabilir.
-            const decimal stockThreshold = 10;
-            return await _context.Materials
-                                  .Where(m => m.UnitInStock < stockThreshold)
-                                  .ToListAsync();
+
+
+
+            //const decimal stockThreshold = 10;
+            //return await _context.Materials
+            //                      .Where(m => m.UnitInStock < stockThreshold)
+            //                      .ToListAsync();
+
+            return await _context.Materials.ToListAsync();
         }
 
         public async Task<IEnumerable<Material>> GetMaterialsForRecipe(int recipeId)

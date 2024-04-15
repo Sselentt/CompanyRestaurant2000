@@ -39,7 +39,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Admin/Account/Login"; // Giriþ yapýlmamýþsa yönlendirilecek yol
-    options.AccessDeniedPath =new PathString("/Admin/Account/AccessDenied"); // Eriþim reddedildiðinde yönlendirilecek yol
+    options.AccessDeniedPath = new PathString("/Admin/Account/AccessDenied"); // Eriþim reddedildiðinde yönlendirilecek yol
     options.LogoutPath = "/Admin/Account/Logout"; // Çýkýþ iþlemi için yol (isteðe baðlý)
 });
 
@@ -52,7 +52,7 @@ builder.Services.AddRepositoryService();
 builder.Services.AddControllersWithViews(options =>
 {
     // Global olarak Authorize attribute'unu tüm controller'lara uygula
-    options.Filters.Add(new AuthorizeFilter());
+    //options.Filters.Add(new AuthorizeFilter());
 });
 
 var app = builder.Build();

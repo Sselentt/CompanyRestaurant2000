@@ -12,7 +12,7 @@ namespace CompanyRestaurant.Entities.Entities
         public string ImageUrl { get; set; } // Reçetenin görseli
 
         // İlişkisel özellikler
-        public int ProductId { get; set; } // Ürün ile ilişkilendirme
+        public int? ProductId { get; set; } // Ürün ile ilişkilendirme
         public virtual Product Product { get; set; }
         public virtual List<RecipeMaterial> RecipeMaterials { get; set; } // Malzeme listesi
 
