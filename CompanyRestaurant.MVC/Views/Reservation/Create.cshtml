@@ -59,13 +59,18 @@
                                 <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
                         </div>
+
+                        @* <input type="text" class="form-control" placeholder="İlgili Kişi" asp-for="AppUserName"> *@
+
+                        <input type="hidden" value="@User.Identity.Name" asp-for="AppUserName"/>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="submit" value="Book Your Table Now" class="btn btn-white py-3 px-4">
                             </div>
                         </div>
 
-                        <input type="hidden" value="@User.Identity.Name" asp-for="AppUserName"/>
+                        
                        
                         
 

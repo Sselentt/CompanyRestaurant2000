@@ -52,11 +52,12 @@ namespace CompanyRestaurant.MVC.Models.RezervationVM
         //////public string AppUserName { get; set; } // Rezervasyonu yapan kullanıcının adı
 
         ////// İlgili müşteri bilgisi (Opsiyonel)
+        
         [Display(Name = "Müşteri")]
         public int? CustomerId { get; set; }
 
         [Display(Name = "İlgili Kişi")]
-        public string AppUserName { get; set; } // İlgili kişi tam adı
+        public string? AppUserName { get; set; } // İlgili kişi tam adı
         //public SelectList TableList { get; set; }
 
     }

@@ -17,8 +17,8 @@ namespace CompanyRestaurant.Entities.Entities
 
         public int? AppUserId { get; set; }
         public virtual AppUser? AppUser { get; set; }
-        public int TableId { get; set; }
-        public virtual Table Table { get; set; }
+        public int? TableId { get; set; }
+        public virtual Table? Table { get; set; }
         public int? CustomerId { get; set; }
         public virtual Customer? Customer { get; set; }
 

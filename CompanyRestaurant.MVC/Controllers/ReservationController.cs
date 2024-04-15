@@ -41,6 +41,16 @@ namespace CompanyRestaurant.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                //// Müşterinin adı ve soyadını ayırma
+                //var userNameParts = model.AppUserName.Split(' ');
+                //var name = userNameParts[0];
+                //var surname = userNameParts[1];
+
+                //// Modeli güncelle
+                //model.Name = name;
+                //model.Surname = surname;
+
+                // AutoMapper kullanarak rezervasyon nesnesine dönüştür
                 var reservation = _mapper.Map<Rezervation>(model);
                 await _rezervationRepository.MakeReservation(reservation);
 
@@ -48,11 +58,8 @@ namespace CompanyRestaurant.MVC.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            // ModelState.IsValid false ise, formu tekrar göstermeden önce masaların listesini tekrar yükle
-            var tables = await _tableRepository.GetAllTables();
-         //   model.TableList = new SelectList(tables, "Id", "TableNo");
-
             return View(model);
+            
         }
     }
 }
