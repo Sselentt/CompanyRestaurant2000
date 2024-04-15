@@ -24,15 +24,22 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var unitStock in Model)
         {
             <tr>
-                <td>@item.MaterialID</td>
-                <td>@item.Stock</td>
-                <td>@item.CriticalStock</td>
-                <td>@item.MinimumStockLevel</td>
+                @foreach (var item in ViewBag.materials as IEnumerable<Material>)
+                {
+                    if (unitStock.MaterialID == item.ID)
+                    {
+                        <td>@item.MaterialName</td>
+                    }
+
+                }
+                <td>@unitStock.Stock</td>
+                <td>@unitStock.CriticalStock</td>
+                <td>@unitStock.MinimumStockLevel</td>
                 <td>
-                    @if (item.IsCriticalLevelReached)
+                    @if (unitStock.IsCriticalLevelReached)
                     {
                         <span class="badge badge-danger">Evet</span>
                     }
@@ -42,9 +49,9 @@
                     }
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                    <a asp-action="Details" asp-route-id="@unitStock.Id" class="btn btn-info">Detay</a>
+                    <a asp-action="Edit" asp-route-id="@unitStock.Id" class="btn btn-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@unitStock.Id" class="btn btn-danger">Sil</a>
                 </td>
             </tr>
         }
