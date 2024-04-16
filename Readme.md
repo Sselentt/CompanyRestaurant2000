@@ -1,19 +1,21 @@
-# Company Restaurant projesi Ntier mimarisine uygun yapýlmýþtýr.
+TasteFoodIt Projesi
 
-## Burada proje ile ilgili detaylar yer alýcaktýr. 
+ Hoþ Geldiniz!
 
-## CompanyRestaurant.Entities;
-Projede kullanýlmasý gereken entitylerin dahil edildiði katmandýr. 
+ Bu projede, hem bir Admin Paneli hem de Kullanýcý Arayüzü bulunmaktadýr.
 
+ Admin Paneli
 
-## CompanyRestaurant.DAL
-Katmanýn sahip olmasý gereken kütüphaneler;
-Microsoft.AspNetCore.Identity.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.SqlServer
-Microsoft.EntityFrameworkCore.Tools
+Admin Paneli, tüm CRUD iþlemlerini kolaylýkla yönetebileceðiniz bir yapýya sahiptir. Bu sayede, proje üzerinde tam kontrol saðlanmaktadýr.
 
-Context veritabanýný temsil eder.
-Configuration entitilerin hangi kurallar dahilinde oluþturulmasý gerektiðini barýndýrýr.
+ Kullanýcý Arayüzü
 
-## CompanyRestaurant.BLL
-categoryrepository ve categoryservices oluþturuyoruz çünkü kategoriye lazým olan kurallarý tanýmlamak için bu da solidin "Ý" si kuralýna uymuþ oluruz.
+Kullanýcý Arayüzü, bir restoran websitesi olarak tasarlanmýþ olup þýk bir görünüme sahiptir. Ziyaretçilere restoran hakkýnda detaylý bilgiler sunmanýn yaný sýra, rezervasyon, iletiþim ve menü gibi kreatif arayüzler sunmaktadýr.
+
+ Kullanýlan Teknolojiler
+-Asp.Net Framework (C#) -MVC -Entity Framework (ORM) 6.0 -Microsoft SQL Server (MSSQL) Veritabaný -Nesne Tabanlý Yazýlým (OOP) -Code First -HTML/CSS/Bootstrap/JS -Migration -Authorize -Session
+
+ Bu proje, yenilikçi teknolojiler ve etkili tasarýmýyla dikkat çekmektedir.
+
+ Teþekkürler!
+
