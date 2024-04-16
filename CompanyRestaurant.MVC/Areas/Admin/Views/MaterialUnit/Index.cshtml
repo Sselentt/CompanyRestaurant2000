@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<CompanyRestaurant.MVC.Models.MaterialUnitVM.MaterialUnitViewModel>
 
 @{
-    ViewData["Title"] = "Malzeme Birimleri";
+    ViewData["Title"] = "Malzeme Birim Listesi";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">Yeni Malzeme Birimi Ekle</a>
+    <a asp-action="Create" class="btn btn-primary">Yeni Malzeme Birimi Ekle</a>
 </p>
 
 <table class="table">
@@ -21,16 +21,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var materialUnit in Model)
+        @foreach (var item in Model)
         {
             <tr>
-                <td>@materialUnit.Unit</td>
-                <td>@materialUnit.Description</td>
-                <td>@materialUnit.MaterialId</td>
+                <td>@item.Unit</td>
+                <td>@item.Description</td>
+                <td>@item.MaterialId</td>
                 <td>
-                    <a href="@Url.Action("Edit", "MaterialUnit", new { id = materialUnit.Id })" class="btn btn-warning">Düzenle</a>
-                    <a href="@Url.Action("Details", "MaterialUnit", new { id = materialUnit.Id })" class="btn btn-info">Detaylar</a>
-                    <a href="@Url.Action("Delete", "MaterialUnit", new { id = materialUnit.Id })" class="btn btn-danger">Sil</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
                 </td>
             </tr>
         }

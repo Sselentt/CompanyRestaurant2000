@@ -16,7 +16,7 @@ namespace CompanyRestaurant.MVC.Models.MaterialPriceVM
         [Display(Name = "Açıklama")]
         public string Description { get; set; } // Fiyatlandırma ile ilgili açıklama
 
-        public string? Name { get; set; }
+        public string Name { get; set; }
         // Opsiyonel: Malzemenin tedarikçi bilgileri
         public int SupplierId { get; set; }
         public int MaterialId { get; set; }

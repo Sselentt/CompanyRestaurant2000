@@ -1,31 +1,29 @@
 ﻿@model CompanyRestaurant.MVC.Models.MaterialUnitVM.MaterialUnitViewModel
 
 @{
-    ViewData["Title"] = "Yeni Malzeme Birimi Ekle";
+    ViewData["Title"] = "Yeni Malzeme Birimi Oluştur";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create">
     <div class="form-group">
-        <label asp-for="Unit" class="control-label">Birim</label>
+        <label asp-for="Unit" class="control-label"></label>
         <input asp-for="Unit" class="form-control" />
         <span asp-validation-for="Unit" class="text-danger"></span>
     </div>
-
     <div class="form-group">
-        <label asp-for="Description" class="control-label">Açıklama</label>
+        <label asp-for="Description" class="control-label"></label>
         <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-
     <div class="form-group">
-        <label asp-for="MaterialId" class="control-label">Malzeme ID</label>
+        <label asp-for="MaterialId" class="control-label"></label>
         <input asp-for="MaterialId" class="form-control" />
         <span asp-validation-for="MaterialId" class="text-danger"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+    <div class="form-group">
+        <input type="submit" value="Oluştur" class="btn btn-primary" />
+    </div>
 </form>

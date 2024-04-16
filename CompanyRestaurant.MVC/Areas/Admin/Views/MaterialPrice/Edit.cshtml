@@ -1,0 +1,61 @@
+﻿@using CompanyRestaurant.Entities.Enums
+@model CompanyRestaurant.MVC.Models.MaterialPriceVM.MaterialPriceViewModel
+
+@{
+    ViewData["Title"] = "Malzeme Fiyatını Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SupplierId"></label>
+        <select asp-for="SupplierId" asp-items="@ViewBag.SuppliersSelect" class="form-control">
+            <option value="">Lütfen Tedarikçi Seçiniz</option>
+        </select>
+        <span asp-validation-for="SupplierId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaterialId"></label>
+        <select asp-for="MaterialId" asp-items="@ViewBag.MaterialsSelect" class="form-control">
+            <option value="">Lütfen Malzeme Seçiniz</option>
+        </select>
+        <span asp-validation-for="MaterialId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsActive" class="control-label"></label>
+        <input asp-for="IsActive" type="checkbox" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Geri</a>
+</div>

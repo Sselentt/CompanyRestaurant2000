@@ -5,7 +5,7 @@ namespace CompanyRestaurant.Entities.Entities
     public class MaterialPrice:BaseEntity
     {
         public decimal Price { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
 
         //Realtion Properties

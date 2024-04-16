@@ -42,8 +42,10 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
         {
             var suppliers = await _supplierRepository.GetAllAsync();
             ViewBag.SuppliersSelect = new SelectList(suppliers, "ID", "CompanyName");
+
             var materials = await _materialRepository.GetAllAsync();
             ViewBag.MaterialsSelect = new SelectList(materials, "ID", "MaterialName");
+
             return View(new MaterialPriceViewModel());
         }
 
@@ -58,10 +60,10 @@ namespace CompanyRestaurant.MVC.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var suppliers = await _supplierRepository.GetAllAsync();
-            ViewBag.SuppliersSelect = new SelectList(suppliers, "ID", "CompanyName");
-            var materials = await _materialRepository.GetAllAsync();
-            ViewBag.MaterialsSelect = new SelectList(materials, "ID", "MaterialName");
+            // ModelState.IsValid false olduğunda tekrar SelectList'leri oluştur
+            ViewBag.SuppliersSelect = new SelectList(await _supplierRepository.GetAllAsync(), "ID", "CompanyName");
+            ViewBag.MaterialsSelect = new SelectList(await _materialRepository.GetAllAsync(), "ID", "MaterialName");
+
             return View(model);
         }
 

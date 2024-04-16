@@ -1,26 +1,25 @@
 ﻿@model IEnumerable<CompanyRestaurant.MVC.Models.MaterialPriceVM.MaterialPriceViewModel>
 
 @{
-    ViewData["Title"] = "Malzeme Fiyatları";
+    ViewData["Title"] = "Malzeme Fiyatları Listesi";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">Yeni Malzeme Fiyatı Ekle</a>
+    <a asp-action="Create" class="btn btn-primary">Yeni Malzeme Fiyatı Ekle</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-
-            <th>Malzeme Adı</th>
             <th>Fiyat</th>
-            @* <th>Ad</th> *@
             <th>Açıklama</th>
-            <th>Tedarikçi Adı</th>
-            <th>Durum</th>
+            <th>Tedarikçi</th>
+            <th>Malzeme</th>
+            <th>Ad</th>
+            <th>Aktif Mi?</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -28,40 +27,31 @@
         @foreach (var materialPrice in Model)
         {
             <tr>
-
-                @foreach (var item in ViewBag.materials as IEnumerable<Material>)
-                {
-                    if (materialPrice.MaterialId == item.ID)
+                <td>@materialPrice.Price</td>
+                <td>@materialPrice.Description</td>
+                    @foreach (var item in ViewBag.suppliers as IEnumerable<Supplier>)
                     {
-                        <td>@item.MaterialName</td>
-                    }
-
-                }
-                <td>@materialPrice.Price.ToString("C")</td>
-@*                 <td>@materialPrice.Name</td>
- *@                <td>@materialPrice.Description</td>
-                @foreach (var item in ViewBag.suppliers as IEnumerable<Supplier>)
-                {
-                    if (materialPrice.SupplierId == item.ID)
-                    {
+                        if (materialPrice.SupplierId == item.ID)
+                        {
                         <td>@item.CompanyName</td>
+                        }
+
                     }
 
-                }
-                <td>
-                    @if (materialPrice.IsActive)
+                    @foreach (var item in ViewBag.materials as IEnumerable<Material>)
                     {
-                        <span class="badge badge-success">Aktif</span>
+                        if (materialPrice.MaterialId == item.ID)
+                        {
+                        <td>@item.MaterialName</td>
+                        }
+
                     }
-                    else
-                    {
-                        <span class="badge badge-danger">Pasif</span>
-                    }
-                </td>
+                <td>@materialPrice.Name</td>
+                <td>@(materialPrice.IsActive ? "Evet" : "Hayır")</td>
                 <td>
-                    <a href="@Url.Action("Edit", "MaterialPrice", new { id = materialPrice.Id })" class="btn btn-warning">Düzenle</a>
-                    <a href="@Url.Action("Details", "MaterialPrice", new { id = materialPrice.Id })" class="btn btn-info">Detaylar</a>
-                    <a href="@Url.Action("Delete", "MaterialPrice", new { id = materialPrice.Id })" class="btn btn-danger">Sil</a>
+                    <a asp-action="Details" asp-route-id="@materialPrice.Id" class="btn btn-info">Detay</a>
+                    <a asp-action="Edit" asp-route-id="@materialPrice.Id" class="btn btn-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@materialPrice.Id" class="btn btn-danger">Sil</a>
                 </td>
             </tr>
         }
