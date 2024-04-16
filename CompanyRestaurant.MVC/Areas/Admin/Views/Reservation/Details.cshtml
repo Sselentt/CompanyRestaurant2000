@@ -1,0 +1,49 @@
+﻿@model CompanyRestaurant.MVC.Models.RezervationVM.RezervationViewModel
+
+@{
+    ViewData["Title"] = "Rezervasyon Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <dl class="row">
+        <dt class="col-sm-3">Rezervasyon ID:</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Müşteri Adı:</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Müşteri Soyadı:</dt>
+        <dd class="col-sm-9">@Model.Surname</dd>
+
+        <dt class="col-sm-3">Telefon Numarası:</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-3">E-Posta:</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Rezervasyon Tarihi:</dt>
+        <dd class="col-sm-9">@Model.ReservationDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Başlangıç Saati:</dt>
+        <dd class="col-sm-9">@Model.StartTime</dd>
+
+        <dt class="col-sm-3">Bitiş Saati:</dt>
+        <dd class="col-sm-9">@Model.EndTime</dd>
+
+        <dt class="col-sm-3">Açıklama:</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Masa ID:</dt>
+        <dd class="col-sm-9">@Model.TableId</dd>
+
+        <dt class="col-sm-3">Müşteri ID:</dt>
+        <dd class="col-sm-9">@Model.CustomerId</dd>
+
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>

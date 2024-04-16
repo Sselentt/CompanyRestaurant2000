@@ -1,62 +1,64 @@
 ﻿@model CompanyRestaurant.MVC.Models.RezervationVM.RezervationViewModel
 
 @{
-    ViewData["Title"] = "Yeni Rezervasyon Oluştur";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml"; // Kullandığınız layout dosyasının yolunu buraya yazın
+    ViewData["Title"] = "Rezervasyon Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Yeni Rez</h2>
+<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="All" asp-controller="Reservation"class="text-danger"></div>
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" asp-controller="Reservation" class="text-danger"></div>
+ @*    <input type="hidden" asp-for="Id" /> *@
 
     <div class="form-group">
-        <label asp-for="Name"></label>
+        <label asp-for="Name" class="control-label">Müşteri Adı</label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Surname"></label>
+        <label asp-for="Surname" class="control-label">Müşteri Soyadı</label>
         <input asp-for="Surname" class="form-control" />
         <span asp-validation-for="Surname" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="PhoneNumber"></label>
+        <label asp-for="PhoneNumber" class="control-label">Telefon Numarası</label>
         <input asp-for="PhoneNumber" class="form-control" />
         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Email"></label>
+        <label asp-for="Email" class="control-label">E-Posta</label>
         <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="ReservationDate"></label>
-        <input asp-for="ReservationDate" class="form-control" type="date" />
+        <label asp-for="ReservationDate" class="control-label">Rezervasyon Tarihi</label>
+        <input asp-for="ReservationDate" class="form-control" />
         <span asp-validation-for="ReservationDate" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="StartTime"></label>
-        <input asp-for="StartTime" class="form-control" type="time" />
+        <label asp-for="StartTime" class="control-label">Başlangıç Saati</label>
+        <input asp-for="StartTime" class="form-control" />
         <span asp-validation-for="StartTime" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="EndTime"></label>
-        <input asp-for="EndTime" class="form-control" type="time" />
+        <label asp-for="EndTime" class="control-label">Bitiş Saati</label>
+        <input asp-for="EndTime" class="form-control" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
+        <label asp-for="Description" class="control-label">Açıklama</label>
+        <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
+
 
     <div class="form-group">
         <label asp-for="TableId"></label>
@@ -66,16 +68,6 @@
         <span asp-validation-for="TableId" class="text-danger"></span>
     </div>
 
- @*    <div class="form-group">
-        <label asp-for="AppUserId"></label>
-        <select asp-for="AppUserId" asp-items="@ViewBag.AppUsersSelect" class="form-control">
-            <option value="">Lütfen bir çalışan seçiniz</option>
-        </select>
-        <span asp-validation-for="AppUserId" class="text-danger"></span>
-    </div> *@
-
-    <input type="hidden" value="@User.Identity.Name" asp-for="AppUserName"/>
-
     <div class="form-group">
         <label asp-for="CustomerId"></label>
         <select asp-for="CustomerId" asp-items="@ViewBag.CustomersSelect" class="form-control">
@@ -84,5 +76,8 @@
         <span asp-validation-for="CustomerId" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Rezervasyonu Kaydet</button>
+     <input type="hidden" value="@User.Identity.Name" asp-for="AppUserName"/>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
 </form>

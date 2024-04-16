@@ -7,6 +7,7 @@ using CompanyRestaurant.MVC.Models.CurrentVM;
 using CompanyRestaurant.MVC.Models.CustomerVM;
 using CompanyRestaurant.MVC.Models.EmployeeVM;
 using CompanyRestaurant.MVC.Models.MaterialPriceVM;
+using CompanyRestaurant.MVC.Models.MaterialUnitVM;
 using CompanyRestaurant.MVC.Models.MaterialVM;
 using CompanyRestaurant.MVC.Models.OrderVM;
 using CompanyRestaurant.MVC.Models.PaymentVM;
@@ -36,6 +37,7 @@ namespace CompanyRestaurant.MVC.AutoMappers
             //CreateMap<Dashboard, DashboardViewModel>();
             CreateMap<Employee, EmployeeViewModel>();
             CreateMap<MaterialPrice, MaterialPriceViewModel>();
+            CreateMap<MaterialUnit, MaterialUnitViewModel>();
             CreateMap<Material, MaterialViewModel>();
             CreateMap<Order, OrderViewModel>();
             CreateMap<Payment, PaymentViewModel>();
@@ -63,6 +65,7 @@ namespace CompanyRestaurant.MVC.AutoMappers
             //CreateMap<DashboardViewModel, Dashboard>(); // Dashboard için bir entity'niz yoksa, bu satırı kaldırın veya düzenleyin.
             CreateMap<EmployeeViewModel, Employee>();
             CreateMap<MaterialPriceViewModel, MaterialPrice>();
+            CreateMap<MaterialUnitViewModel, MaterialUnit>();
             CreateMap<MaterialViewModel, Material>();
             CreateMap<OrderViewModel, Order>();
             CreateMap<PaymentViewModel, Payment>();

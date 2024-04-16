@@ -1,0 +1,21 @@
+﻿@model CompanyRestaurant.MVC.Models.MaterialUnitVM.MaterialUnitViewModel
+
+
+@{
+    ViewData["Title"] = "Malzeme Birimini Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="alert alert-danger">
+        <strong>Uyarı!</strong> Bu Malzeme Birimini sildiğinizde geri alınamaz. Birim: @Model.Unit
+    </div>
+
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>
+

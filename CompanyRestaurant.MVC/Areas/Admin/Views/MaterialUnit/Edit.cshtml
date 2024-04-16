@@ -1,0 +1,33 @@
+﻿@model CompanyRestaurant.MVC.Models.MaterialUnitVM.MaterialUnitViewModel
+
+@{
+    ViewData["Title"] = "Malzeme Birimini Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Unit" class="control-label">Birim</label>
+        <input asp-for="Unit" class="form-control" />
+        <span asp-validation-for="Unit" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Açıklama</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MaterialId" class="control-label">Malzeme ID</label>
+        <input asp-for="MaterialId" class="form-control" />
+        <span asp-validation-for="MaterialId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

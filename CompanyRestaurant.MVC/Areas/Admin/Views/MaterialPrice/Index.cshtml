@@ -14,8 +14,10 @@
 <table class="table">
     <thead>
         <tr>
+
             <th>Malzeme Adı</th>
             <th>Fiyat</th>
+            @* <th>Ad</th> *@
             <th>Açıklama</th>
             <th>Tedarikçi Adı</th>
             <th>Durum</th>
@@ -26,6 +28,7 @@
         @foreach (var materialPrice in Model)
         {
             <tr>
+
                 @foreach (var item in ViewBag.materials as IEnumerable<Material>)
                 {
                     if (materialPrice.MaterialId == item.ID)
@@ -35,7 +38,8 @@
 
                 }
                 <td>@materialPrice.Price.ToString("C")</td>
-                <td>@materialPrice.Description</td>
+@*                 <td>@materialPrice.Name</td>
+ *@                <td>@materialPrice.Description</td>
                 @foreach (var item in ViewBag.suppliers as IEnumerable<Supplier>)
                 {
                     if (materialPrice.SupplierId == item.ID)

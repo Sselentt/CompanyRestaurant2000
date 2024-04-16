@@ -16,7 +16,7 @@ namespace CompanyRestaurant.MVC.Models.MaterialPriceVM
         [Display(Name = "Açıklama")]
         public string Description { get; set; } // Fiyatlandırma ile ilgili açıklama
 
-
+        public string? Name { get; set; }
         // Opsiyonel: Malzemenin tedarikçi bilgileri
         public int SupplierId { get; set; }
         public int MaterialId { get; set; }
@@ -30,8 +30,8 @@ namespace CompanyRestaurant.MVC.Models.MaterialPriceVM
 
 
         // Opsiyonel: Malzeme ile ilişkili diğer bilgiler veya özellikler de eklenebilir.
-        [Display(Name = "Durum")]
-        public DataStatus Status { get; set; } // Kategori durumu
+        //[Display(Name = "Durum")]
+        //public DataStatus Status { get; set; } // Kategori durumu
         [Display(Name = "Aktif Mi?")]
         public bool IsActive { get; set; } // Kategori aktif mi?
     }
