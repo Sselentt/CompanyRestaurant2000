@@ -1,21 +1,28 @@
-TasteFoodIt Projesi
+Company Restaurant Projesi
 
- Hoş Geldiniz!
+ğŸ½ï¸ HoÅŸ Geldiniz!
 
- Bu projede, hem bir Admin Paneli hem de Kullanıcı Arayüzü bulunmaktadır.
+ğŸ“ Company Restaurant projesi. Bu projede, hem bir Admin Paneli hem de KullanÄ±cÄ± ArayÃ¼zÃ¼ bulunmaktadÄ±r.
 
- Admin Paneli
+ğŸ‘¨â€ğŸ’¼ Admin Paneli
 
-Admin Paneli, tüm CRUD işlemlerini kolaylıkla yönetebileceğiniz bir yapıya sahiptir. Bu sayede, proje üzerinde tam kontrol sağlanmaktadır.
+Admin Paneli, tÃ¼m CRUD iÅŸlemlerini kolaylÄ±kla yÃ¶netebileceÄŸiniz bir yapÄ±ya sahiptir. Bu sayede, proje Ã¼zerinde tam kontrol saÄŸlanmaktadÄ±r.
 
- Kullanıcı Arayüzü
+ğŸ‘©â€ğŸ’» KullanÄ±cÄ± ArayÃ¼zÃ¼
 
-Kullanıcı Arayüzü, bir restoran websitesi olarak tasarlanmış olup şık bir görünüme sahiptir. Ziyaretçilere restoran hakkında detaylı bilgiler sunmanın yanı sıra, rezervasyon, iletişim ve menü gibi kreatif arayüzler sunmaktadır.
+KullanÄ±cÄ± ArayÃ¼zÃ¼, bir restoran websitesi olarak tasarlanmÄ±ÅŸ olup ÅŸÄ±k bir gÃ¶rÃ¼nÃ¼me sahiptir. ZiyaretÃ§ilere restoran hakkÄ±nda detaylÄ± bilgiler sunmanÄ±n yanÄ± sÄ±ra, rezervasyon, iletiÅŸim ve menÃ¼ gibi kreatif arayÃ¼zler sunmaktadÄ±r.
 
- Kullanılan Teknolojiler
--Asp.Net Framework (C#) -MVC -Entity Framework (ORM) 6.0 -Microsoft SQL Server (MSSQL) Veritabanı -Nesne Tabanlı Yazılım (OOP) -Code First -HTML/CSS/Bootstrap/JS -Migration -Authorize -Session
+ğŸ› ï¸ KullanÄ±lan Teknolojiler
 
- Bu proje, yenilikçi teknolojiler ve etkili tasarımıyla dikkat çekmektedir.
+-Asp.Net Framework (C#) -MVC -Entity Framework (ORM) 6.0 -Microsoft SQL Server (MSSQL) VeritabanÄ± -Nesne TabanlÄ± YazÄ±lÄ±m (OOP) -Code First -HTML/CSS/Bootstrap/JS  -Migration -Authorize -Session
 
- Teşekkürler!
+ğŸ“ Projeye KatkÄ±larÄ±nÄ±zÄ± Bekliyoruz!
+
+Bu proje, yenilikÃ§i teknolojiler ve etkili tasarÄ±mÄ±yla dikkat Ã§ekmektedir. 
+
+âœ¨ TeÅŸekkÃ¼rler!
+
+# Proje GÃ¶rselleri
+
+
 
